@@ -1,7 +1,12 @@
-import React from 'react'
-import { render, fireEvent } from '../testUtils'
-import { Home } from '../../pages/index'
-import { IFrontPageCard } from '../../pages/api/cards'
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+
+import { NextApiRequest, NextApiResponse } from 'next'
+
+export interface IFrontPageCard {
+  url: string
+  title: string
+  body: string
+}
 
 const cards: IFrontPageCard[] = [
   {
@@ -27,16 +32,8 @@ const cards: IFrontPageCard[] = [
   },
 ]
 
-describe('Home page', () => {
-  it('matches snapshot', () => {
-    const { asFragment } = render(<Home cards={cards} />, {})
-    expect(asFragment()).toMatchSnapshot()
-  })
+const handler = (req: NextApiRequest, res: NextApiResponse) => {
+  res.status(200).json(cards)
+}
 
-  it('clicking button triggers alert', () => {
-    const { getByText } = render(<Home cards={cards} />, {})
-    window.alert = jest.fn()
-    fireEvent.click(getByText('Test Button'))
-    expect(window.alert).toHaveBeenCalledWith('With typescript and Jest')
-  })
-})
+export default handler

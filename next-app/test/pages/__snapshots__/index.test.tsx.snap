@@ -38,61 +38,61 @@ exports[`Home page matches snapshot 1`] = `
         class="jsx-1276654382 grid"
       >
         <a
-          class="jsx-1276654382 card"
+          class="jsx-2757008462 card"
           href="https://nextjs.org/docs"
         >
           <h3
-            class="jsx-1276654382"
+            class="jsx-2757008462"
           >
             Documentation →
           </h3>
           <p
-            class="jsx-1276654382"
+            class="jsx-2757008462"
           >
             Find in-depth information about Next.js features and API.
           </p>
         </a>
         <a
-          class="jsx-1276654382 card"
+          class="jsx-2757008462 card"
           href="https://nextjs.org/learn"
         >
           <h3
-            class="jsx-1276654382"
+            class="jsx-2757008462"
           >
             Learn →
           </h3>
           <p
-            class="jsx-1276654382"
+            class="jsx-2757008462"
           >
             Learn about Next.js in an interactive course with quizzes!
           </p>
         </a>
         <a
-          class="jsx-1276654382 card"
+          class="jsx-2757008462 card"
           href="https://github.com/vercel/next.js/tree/master/examples"
         >
           <h3
-            class="jsx-1276654382"
+            class="jsx-2757008462"
           >
             Examples →
           </h3>
           <p
-            class="jsx-1276654382"
+            class="jsx-2757008462"
           >
             Discover and deploy boilerplate example Next.js projects.
           </p>
         </a>
         <a
-          class="jsx-1276654382 card"
+          class="jsx-2757008462 card"
           href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         >
           <h3
-            class="jsx-1276654382"
+            class="jsx-2757008462"
           >
             Deploy →
           </h3>
           <p
-            class="jsx-1276654382"
+            class="jsx-2757008462"
           >
             Instantly deploy your Next.js site to a public URL with Vercel.
           </p>

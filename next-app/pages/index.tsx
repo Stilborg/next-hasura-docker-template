@@ -1,13 +1,38 @@
+import { GetStaticPropsResult, NextPageContext } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
+import Card from '../components/card'
+import { IFrontPageCard } from './api/cards'
 
-export const Home = (): JSX.Element => (
+const HOST_NAME = process.env.HOST_NAME || 'http://localhost:3000/'
+
+export interface ICardsProps {
+  cards: IFrontPageCard[]
+}
+
+export async function getStaticProps(
+  _context: NextPageContext
+): Promise<GetStaticPropsResult<ICardsProps>> {
+  const res = await fetch(`${HOST_NAME}api/cards`)
+  const cards = await res.json()
+
+  if (!cards) {
+    return {
+      notFound: true,
+    }
+  }
+
+  return {
+    props: { cards },
+  }
+}
+
+export const Home = ({ cards }: ICardsProps): JSX.Element => (
   <div className="container">
     <Head>
       <title>Create Next App</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-
     <main>
       <h1 className="title">
         Welcome to <a href="https://nextjs.org">Next.js!</a>
@@ -26,31 +51,14 @@ export const Home = (): JSX.Element => (
       </button>
 
       <div className="grid">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Learn &rarr;</h3>
-          <p>Learn about Next.js in an interactive course with quizzes!</p>
-        </a>
-
-        <a
-          href="https://github.com/vercel/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Discover and deploy boilerplate example Next.js projects.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className="card"
-        >
-          <h3>Deploy &rarr;</h3>
-          <p>Instantly deploy your Next.js site to a public URL with Vercel.</p>
-        </a>
+        {cards.map((card: IFrontPageCard, idx: number) => (
+          <Card
+            key={`card_${idx}`}
+            title={card.title}
+            body={card.body}
+            url={card.url}
+          />
+        ))}
       </div>
     </main>
 

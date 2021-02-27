@@ -1,4 +1,4 @@
-# next-docker-template
+# next-hasura-docker-template
 
 Template for Next.js project with typescript and jest running in Docker
 
@@ -11,6 +11,26 @@ and `npm run down` to stop it again
 I created this repo to have a starter repo to use for next.js projects. The goal is for it to work seamlessly across mac Intel, mac M1 and Windows WSL2.
 
 ## Known issues and workarounds
+
+## Mac M1 (Apple Silicon)
+
+It runs on the M1. But with a few restrictions.
+
+Install _hasura-cli_ using the npm wrapper: `npm install --save-dev hasura-cli@latest`
+
+Switch to the arm64 image in the docker-compose file by switching the images, like this:
+
+```yml
+graphql-engine:
+  image: fedormelexin/graphql-engine-arm64 # Image for arm64 (Mac M1)
+  # image: hasura/graphql-engine:v2.0.0-alpha.2 # Image for x86_64
+```
+
+The arm64 image is a community created version as there is not yet an official version for arm64.
+
+**Metadata handling using the hasura cli is not supported on arm64, yet**
+
+This is due to a plugin installation that fails. Hopefully it will be fixed soon.
 
 ## WSL2
 

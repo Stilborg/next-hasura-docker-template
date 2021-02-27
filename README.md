@@ -22,6 +22,7 @@ Switch to the arm64 image in the docker-compose file by switching the images, li
 
 ```yml
 graphql-engine:
+  # image; hasura/graphql-engine:latest # latest official release for x86_64
   image: fedormelexin/graphql-engine-arm64 # Image for arm64 (Mac M1)
   # image: hasura/graphql-engine:v2.0.0-alpha.2 # Image for x86_64
 ```

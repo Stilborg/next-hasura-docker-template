@@ -1,0 +1,15 @@
+{
+  "name": "next-template",
+  "version": "1.0.0",
+  "author": {
+    "name": "Claus Stilborg",
+    "url": "https://github.com/Stilborg/"
+  },
+  "scripts": {
+    "up": "docker-compose -p $npm_package_name up -d && echo 'dev environment up, use \"npm run down\" to stop it.'",
+    "down": "docker-compose -p $npm_package_name down && echo 'dev environment taken down.'"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1"
+  }
+}

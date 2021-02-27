@@ -2,13 +2,15 @@
 
 Template for Next.js project with typescript and jest running in Docker
 
-Run `docker-compose up`
+Run `npm run up` to start the dev environment
+
+and `npm run down` to stop it again
 
 ## Purpose
 
 I created this repo to have a starter repo to use for next.js projects. The goal is for it to work seamlessly across mac Intel, mac M1 and Windows WSL2.
 
-## Known issues and work arounds
+## Known issues and workarounds
 
 ## WSL2
 

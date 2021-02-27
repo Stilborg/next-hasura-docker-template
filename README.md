@@ -1,6 +1,6 @@
 # next-hasura-docker-template
 
-Template for Next.js project with typescript and jest running in Docker
+Template for Next.js projects with typescript and jest running in Docker
 
 Run `npm run up` to start the dev environment
 
@@ -8,13 +8,34 @@ and `npm run down` to stop it again
 
 ## Purpose
 
-I created this repo to have a starter repo to use for next.js projects. The goal is for it to work seamlessly across mac Intel, mac M1 and Windows WSL2.
+I created this to have a starter repo to use for next.js projects with Hasura Graphql underneath .
 
-## Known issues and workarounds
+The goal is for it to work seamlessly across mac Intel, mac M1 and Windows WSL2.
+
+## Disclaimer
+
+This is most definitely **a work in progress**, if it does not work for your specific scenario. do not expect me to be able to allocate time to fix it for you.
+
+PR's are welcome...
 
 ## Mac M1 (Apple Silicon)
 
-It runs on the M1. But with a few restrictions.
+### Node & npm
+
+If you want it natively, you can follow the steps outlined by Justin Wride here: [Install Node and NPM natively on Apple Silicon Mac (M1)](https://justinwride.medium.com/install-node-and-npm-natively-on-apple-silicon-mac-m1-7432c826389b)
+
+### HASURA
+
+Yes, It runs on the M1. But with a few restrictions.
+
+You might need to change you docker resource settings, I use these:
+
+```yml
+CPU's: 4
+Memory: 6 GB # This one being to low might cause Error 137
+Swap: 1 GB
+Disk: 59.6 GB
+```
 
 Install _hasura-cli_ using the npm wrapper: `npm install --save-dev hasura-cli@latest`
 

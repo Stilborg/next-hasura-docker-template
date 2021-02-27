@@ -1,6 +1,6 @@
 # next-hasura-docker-template
 
-Template for **Next.js**, **Hasura** and **PostgreSQL** projects, all running in docker for a minimal setup development experience.
+Template for **Next.js**, **Hasura** and **PostgreSQL** projects, all running in docker.
 
 Run `npm run up` to start the dev environment
 

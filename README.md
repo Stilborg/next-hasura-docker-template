@@ -1,6 +1,6 @@
 # next-hasura-docker-template
 
-Template for Next.js projects with typescript and jest running in Docker
+Template for **Next.js**, **Hasura** and **PostgreSQL** projects, all running in docker for a minimal setup development experience.
 
 Run `npm run up` to start the dev environment
 
@@ -24,7 +24,7 @@ PR's are welcome...
 
 If you want it natively, you can follow the steps outlined by Justin Wride here: [Install Node and NPM natively on Apple Silicon Mac (M1)](https://justinwride.medium.com/install-node-and-npm-natively-on-apple-silicon-mac-m1-7432c826389b)
 
-### HASURA
+### HASURA GraphQL Engine
 
 Yes, It runs on the M1. But with a few restrictions.
 

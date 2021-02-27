@@ -1,15 +1,11 @@
 version: "3.8"
 
 services:
-    app:
-        build: 
-          context: next-app
-          dockerfile: Dockerfile
-        stdin_open: true
-        ports: 
-            - 3000:3000
-        volumes: 
-            - ./next-app:/usr/src/app
-            - /usr/src/app/node_modules
-            - /usr/src/app/.next
-        command: npm run dev
+  app:
+    build: ./next-app
+    stdin_open: true
+    ports:
+      - 3000:3000
+    volumes:
+      - ./next-app:/usr/src/app
+    entrypoint: ["npm", "run", "dev"]

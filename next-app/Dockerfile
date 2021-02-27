@@ -1,16 +1,14 @@
 FROM node:15
 
-USER node
-RUN mkdir -p /home/node/app
-WORKDIR /home/node
-
-COPY --chown=node:node ./package.json .
-ENV PATH /home/node/node_modules/.bin:$PATH
+WORKDIR /usr/src
+COPY ./package.json .
+ENV PATH /usr/src/node_modules/.bin:$PATH
 RUN npm install --unsafe-perm
 
-WORKDIR /home/node/app
-COPY --chown=node:node . .
-CMD npm run dev
-# ENV PORT=80
-# EXPOSE 80
+WORKDIR /usr/src/app
+COPY . .
+
 EXPOSE 3000
+
+ENTRYPOINT [ "npm", "run", "dev" ] 
+
